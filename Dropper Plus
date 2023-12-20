@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DropperPlus : MonoBehaviour
+{
+    //With this code, I get a non-invisible object to fall from the sky immediately. It's like dropper but a little different. 
+    [SerializeField] float waitingTime;
+    [SerializeField] private GameObject dropObject;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        waitingTime = 12f;
+        dropObject = GameObject.Find("DropperPlus");
+
+        if (Time.time > waitingTime){
+
+
+            Instantiate(dropObject, transform.position, Quaternion.identity);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
