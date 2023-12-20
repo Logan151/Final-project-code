@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Dropper2 : MonoBehaviour
+{
+    //This is a second code I made for "Dropper". It works the same way as "Dropper", I made it because my other "Dropper" code wasn't working for the other "Death boxes". 
+    MeshRenderer renderer;
+    Rigidbody rigidBuddy;
+    [SerializeField]float timetoWait = 9f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        renderer = GetComponent<MeshRenderer>();
+        rigidBuddy = GetComponent<Rigidbody>();
+        renderer.enabled = false;
+        rigidBuddy.useGravity = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Time.time > timetoWait)
+        {
+            renderer.enabled = true;
+            rigidBuddy.useGravity = true;
+
+            
+        }
+        
+    }
+}
