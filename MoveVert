@@ -1,0 +1,65 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveVert : MonoBehaviour
+{
+    // With all the code put in "MoveVert" I will be able to move the things I named "Death box" back and forth to try and hit the "player".
+    // The set speeds and directions should make it challenging for the "player" to get past the "Death boxes".
+
+    float moveSpeedOne;
+    float moveSpeedTwo;
+
+    bool isitSo;
+    // Start is called before the first frame update
+    void Start()
+    {
+        moveSpeedOne = 14f;
+        moveSpeedTwo = 14f;
+    isitSo = true;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Translate(0, 0, moveSpeedOne * Time.deltaTime );
+
+
+
+
+        if(transform.position.z > 18f){
+
+            moveSpeedOne = 0f;
+            isitSo = false;
+            moveSpeedTwo = -45f;
+
+
+
+        }
+
+
+        if(transform.position.z <= -18f){
+
+            moveSpeedTwo = 0f;
+            isitSo = true;
+
+            moveSpeedOne =40f;
+
+        }
+
+        if (isitSo ==true){
+
+
+            transform.Translate(0, 0, moveSpeedOne * Time.deltaTime);
+
+
+        }
+
+        if(isitSo == false){
+
+            transform.Translate(0, 0, moveSpeedTwo * Time.deltaTime);
+
+
+        }
+    }
+}
