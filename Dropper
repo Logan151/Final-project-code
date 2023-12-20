@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MovingPlayerInput : MonoBehaviour
+{
+    // All the code used here is to get my player to move vertically and horizontally at the speed I set.
+
+    float movementSpeed;
+    float horiMovement;
+    float vertMovement;
+    // Start is called before the first frame update
+    void Start()
+    {
+        movementSpeed = 9;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        horiMovement = Input.GetAxis("Horizontal");
+        vertMovement = Input.GetAxis("Vertical");
+
+        transform.Translate(horiMovement * Time.deltaTime * movementSpeed, 0, 0);
+        transform.Translate(0,0, vertMovement * Time.deltaTime * movementSpeed);
+        
+    }
+}
